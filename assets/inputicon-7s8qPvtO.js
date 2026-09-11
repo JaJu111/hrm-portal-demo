@@ -1,4 +1,4 @@
-import{O as e,T as t,u as n,x as r}from"./runtime-core.esm-bundler-Dq5yDiGz.js";import{a as i}from"./ripple-BJP2YFaz.js";import{a}from"./index-COteakAF.js";var o=a.extend({name:`iconfield`,style:`
+import{O as e,T as t,u as n,x as r}from"./runtime-core.esm-bundler-fG25Q0p4.js";import{s as i}from"./button-D88OAD24.js";import{a}from"./index-OTjujz-Y.js";var o=a.extend({name:`iconfield`,style:`
     .p-iconfield {
         position: relative;
         display: block;
