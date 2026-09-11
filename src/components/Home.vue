@@ -63,12 +63,37 @@
                 </div>
             </aside>
 
-            <!-- Контентная область -->
             <main class="content-area">
-                <header class="content-header">
-                    <h2 class="page-title">{{ activePageTitle }}</h2>
-                    <span class="mode-badge">Desktop Mode</span>
-                </header>
+                <Toolbar class="custom-toolbar">
+                    <template #start>
+                        <IconField iconPosition="left">
+                            <InputIcon class="pi pi-search" />
+                            <InputText placeholder="Поиск..." />
+                        </IconField>
+                    </template>
+
+                    <template #end>
+                        <div class="actions-wrapper">
+                            <Select 
+                                v-model="selectedLanguage" 
+                                :options="languages" 
+                                optionLabel="name"
+                                optionValue="code"
+                                class="lang-select"
+                            />
+
+                            <Button 
+                                label="Выйти" 
+                                icon="pi pi-sign-out" 
+                                severity="danger" 
+                                variant="outlined"
+                                class="ml-2" 
+                                @click="logout" 
+                            />
+                        </div>
+                    </template>
+                </Toolbar>
+
 
                 <RouterView />
             </main>
@@ -78,15 +103,22 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'; // 1. Импортируем onMounted
-import { useRouter, useRoute } from 'vue-router'; // 2. Импортируем useRoute
+import { ref, computed, onMounted } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
 import Drawer from 'primevue/drawer';
 import Button from 'primevue/button';
 import Avatar from 'primevue/avatar';
+import Toolbar from 'primevue/toolbar';
+import IconField from 'primevue/iconfield';
+import InputIcon from 'primevue/inputicon';
+import InputText from 'primevue/inputtext';
+import Select from 'primevue/select';
 import '@/style/home.css';
 
-const router = useRouter();
-const route = useRoute(); // 3. Получаем доступ к текущему маршруту
+interface LanguageOption {
+    name: string;
+    code: string;
+}
 
 interface MenuItem {
     label: string;
@@ -94,6 +126,9 @@ interface MenuItem {
     active: boolean;
     path: string;
 }
+
+const router = useRouter();
+const route = useRoute();
 
 const visible = ref<boolean>(false);
 
@@ -104,6 +139,18 @@ const menuItems = ref<MenuItem[]>([
     { label: 'Центр обращений', icon: 'pi pi-comments', active: false, path: '/requests' },
     { label: 'Документы', icon: 'pi pi-file', active: false, path: '/documents' },
 ]);
+
+const selectedLanguage = ref<string>('ru');
+
+const languages = ref<LanguageOption[]>([
+    { name: 'Русский', code: 'ru' },
+    { name: 'English', code: 'en' },
+    { name: 'O‘zbekcha', code: 'uz' }
+]);
+
+const logout = (): void => {
+    router.push('/login');
+};
 
 const activePageTitle = computed<string>(() => {
     const currentActive = menuItems.value.find(item => item.active);

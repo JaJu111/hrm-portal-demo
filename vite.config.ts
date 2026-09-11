@@ -5,7 +5,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 export default defineConfig(({ mode }) => {
   return {
-    base: '/hrm-portal-demo/',
+    base: mode === 'production' ? '/hrm-portal-demo/' : '/',
     plugins: [vue(), vueDevTools()],
     resolve: {
       alias: {

@@ -132,7 +132,6 @@
   padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
 }
 .content-header {
   display: flex;
@@ -181,6 +180,21 @@
 }
 .card-placeholder.large {
   height: 260px;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
+.custom-toolbar {
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--p-surface-200);
+  background-color: var(--p-surface-0);
+  border-radius: 8px;
 }
 
 /* --- МЕДИА-ЗАПРОСЫ --- */
