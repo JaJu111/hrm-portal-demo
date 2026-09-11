@@ -91,7 +91,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, onMounted, watch } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 import Drawer from 'primevue/drawer';
 import Button from 'primevue/button';
@@ -146,9 +146,6 @@ const activePageTitle = computed<string>(() => {
 });
 
 const setActive = (clickedItem: MenuItem): void => {
-    menuItems.value.forEach(item => {
-        item.active = item.label === clickedItem.label;
-    });
     visible.value = false;
     router.push(clickedItem.path);
 };
@@ -158,4 +155,14 @@ onMounted(() => {
         item.active = route.path === item.path;
     });
 });
+
+watch(
+    () => route.path,
+    (newPath) => {
+        menuItems.value.forEach(item => {
+            item.active = newPath === item.path;
+        });
+    },
+    { immediate: true }
+);
 </script>
