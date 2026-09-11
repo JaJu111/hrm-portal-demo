@@ -66,34 +66,22 @@
             <main class="content-area">
                 <Toolbar class="custom-toolbar">
                     <template #start>
-                        <IconField iconPosition="left">
+                        <IconField iconPosition="left" class="custom-search">
                             <InputIcon class="pi pi-search" />
-                            <InputText placeholder="Поиск..." />
+                            <InputText placeholder="Поиск..." class="search-input" />
                         </IconField>
                     </template>
 
                     <template #end>
                         <div class="actions-wrapper">
-                            <Select 
-                                v-model="selectedLanguage" 
-                                :options="languages" 
-                                optionLabel="name"
-                                optionValue="code"
-                                class="lang-select"
-                            />
+                            <Select v-model="selectedLanguage" :options="languages" optionLabel="name"
+                                optionValue="code" class="lang-select" />
 
-                            <Button 
-                                label="Выйти" 
-                                icon="pi pi-sign-out" 
-                                severity="danger" 
-                                variant="outlined"
-                                class="ml-2" 
-                                @click="logout" 
-                            />
+                            <Button label="Выйти" icon="pi pi-sign-out" severity="danger" variant="outlined"
+                                class="logout-btn" @click="logout" />
                         </div>
                     </template>
                 </Toolbar>
-
 
                 <RouterView />
             </main>
@@ -133,7 +121,7 @@ const route = useRoute();
 const visible = ref<boolean>(false);
 
 const menuItems = ref<MenuItem[]>([
-    { label: 'Главная страница', icon: 'pi pi-home', active: false, path: '/' },
+    { label: 'Главная страница', icon: 'pi pi-home', active: false, path: '/home' },
     { label: 'Мой профиль', icon: 'pi pi-user', active: false, path: '/profile' },
     { label: 'Структура банка', icon: 'pi pi-sitemap', active: false, path: '/structure' },
     { label: 'Центр обращений', icon: 'pi pi-comments', active: false, path: '/requests' },
@@ -149,7 +137,7 @@ const languages = ref<LanguageOption[]>([
 ]);
 
 const logout = (): void => {
-    router.push('/login');
+    router.push('/');
 };
 
 const activePageTitle = computed<string>(() => {
