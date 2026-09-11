@@ -1,0 +1,206 @@
+/* src/style/home.css */
+
+/* --- БАЗОВАЯ РАСКЛАДКА НА FLEXBOX --- */
+.hrm-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: inherit;
+  background-color: var(--p-surface-50);
+}
+
+.main-container {
+  display: flex;
+  flex: 1;
+}
+
+/* --- МОБИЛЬНАЯ ШАПКА --- */
+.mobile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  padding: 0 16px;
+  background-color: var(--p-surface-0);
+  border-bottom: 1px solid var(--p-surface-200);
+}
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.brand-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* --- ДЕСКТОПНЫЙ САЙДБАР --- */
+.desktop-sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 260px;
+  background-color: var(--p-surface-0);
+  border: 1px solid var(--p-surface-200);
+  padding: 24px 16px;
+  box-sizing: border-box;
+}
+
+.sidebar-top {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* --- ЛОГОТИП И МЕНЮ --- */
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 8px;
+  cursor: pointer;
+  user-select: none;
+}
+.logo-box {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #8b5cf6, #4f46e5);
+  color: white;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.85rem;
+}
+.logo-text {
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--p-text-color);
+}
+
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Изменено с :deep(.menu-btn) на обычный класс, так как в отдельном файле стили глобальные */
+.menu-btn {
+  display: flex !important;
+  justify-content: flex-start !important;
+  width: 100%;
+  text-align: left;
+  padding: 10px 12px !important;
+  font-size: 0.95rem;
+}
+
+/* --- ПОЛЬЗОВАТЕЛЬСКИЙ ФУТЕР --- */
+.user-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--p-surface-200);
+}
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+.user-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--p-text-color);
+}
+.user-role {
+  font-size: 0.75rem;
+  color: var(--p-text-muted-color);
+}
+
+/* --- ДИНАМИЧЕСКИЙ DRAWER --- */
+.drawer-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 16px 0;
+}
+
+/* --- КОНТЕНТНАЯ ОБЛАСТЬ --- */
+.content-area {
+  flex: 1;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.content-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.page-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.mode-badge {
+  font-size: 0.75rem;
+  background-color: var(--p-surface-200);
+  color: var(--p-text-color);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+/* --- СЕТКА ДАШБОРДА НА CSS GRID --- */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.card-item {
+  background-color: var(--p-surface-0);
+  border: 1px solid var(--p-surface-200);
+  border-radius: 12px;
+  padding: 20px;
+}
+.large-card {
+  grid-column: span 2;
+}
+.card-title {
+  margin: 0 0 16px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--p-text-muted-color);
+}
+.card-placeholder {
+  height: 140px;
+  background-color: var(--p-surface-50);
+  border-radius: 8px;
+}
+.card-placeholder.large {
+  height: 260px;
+}
+
+/* --- МЕДИА-ЗАПРОСЫ --- */
+@media (max-width: 768px) {
+  .desktop-sidebar {
+    display: none;
+  }
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  .large-card {
+    grid-column: span 1;
+  }
+  .content-header {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-header {
+    display: none;
+  }
+}
