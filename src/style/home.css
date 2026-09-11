@@ -1,186 +1,433 @@
-/* src/style/home.css */
+/* =========================================================
+   HRM PORTAL
+   GLOBAL LAYOUT
+========================================================= */
 
-/* --- БАЗОВАЯ РАСКЛАДКА НА FLEXBOX --- */
 .hrm-layout {
-  display: flex;
-  flex-direction: column;
   min-height: 100vh;
-  font-family: inherit;
-  background-color: var(--p-surface-50);
+  background: #f5f7fb;
+  color: #1f2937;
 }
 
-.main-container {
-  display: flex;
-  flex: 1;
-}
+/* =========================================================
+ DESKTOP SIDEBAR
+========================================================= */
 
-/* --- МОБИЛЬНАЯ ШАПКА --- */
-.mobile-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 56px;
-  padding: 0 16px;
-  background-color: var(--p-surface-0);
-  border-bottom: 1px solid var(--p-surface-200);
-}
-.header-left {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.brand-title {
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-
-/* --- ДЕСКТОПНЫЙ САЙДБАР --- */
 .desktop-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  z-index: 1000;
+
+  width: 260px;
+  height: 100vh;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 260px;
-  background-color: var(--p-surface-0);
-  border: 1px solid var(--p-surface-200);
-  padding: 24px 16px;
-  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border-right: 1px solid #e5e7eb;
 }
 
 .sidebar-top {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+
+  min-height: 0;
 }
 
-/* --- ЛОГОТИП И МЕНЮ --- */
+/* =========================================================
+ LOGO
+========================================================= */
+
 .logo-area {
+  height: 72px;
+
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 0 8px;
-  cursor: pointer;
-  user-select: none;
+
+  padding: 0 22px;
+
+  border-bottom: 1px solid #f0f1f3;
 }
+
 .logo-box {
-  width: 32px;
-  height: 32px;
-  background: linear-gradient(135deg, #8b5cf6, #4f46e5);
-  color: white;
-  border-radius: 6px;
+  width: 38px;
+  height: 38px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 800;
-  font-size: 0.85rem;
-}
-.logo-text {
+
+  flex-shrink: 0;
+
+  border-radius: 10px;
+
+  background: #2563eb;
+
+  color: #ffffff;
+
+  font-size: 20px;
   font-weight: 700;
-  font-size: 1.15rem;
-  color: var(--p-text-color);
 }
+
+.logo-text {
+  margin-left: 12px;
+
+  color: #111827;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+/* =========================================================
+ MENU
+========================================================= */
 
 .menu-list {
   display: flex;
   flex-direction: column;
+
   gap: 4px;
+
+  padding: 18px 12px;
 }
 
-/* Изменено с :deep(.menu-btn) на обычный класс, так как в отдельном файле стили глобальные */
 .menu-btn {
-  display: flex !important;
+  width: 100% !important;
+
+  min-height: 44px;
+
   justify-content: flex-start !important;
-  width: 100%;
+
+  padding: 0 14px !important;
+
+  border-radius: 8px !important;
+
+  font-size: 14px !important;
+  font-weight: 500 !important;
+
   text-align: left;
-  padding: 10px 12px !important;
-  font-size: 0.95rem;
 }
 
-/* --- ПОЛЬЗОВАТЕЛЬСКИЙ ФУТЕР --- */
+.menu-btn .p-button-label {
+  text-align: left;
+}
+
+.menu-btn:hover {
+  background: #f3f6fb !important;
+}
+
+.menu-btn.p-button-primary {
+  background: #eff6ff !important;
+
+  color: #2563eb !important;
+}
+
+/* =========================================================
+ USER FOOTER
+========================================================= */
+
 .user-footer {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding-top: 16px;
-  border-top: 1px solid var(--p-surface-200);
+
+  min-width: 0;
+
+  padding: 16px;
+
+  border-top: 1px solid #e5e7eb;
 }
+
 .user-info {
+  min-width: 0;
+
+  margin-left: 10px;
+
   display: flex;
   flex-direction: column;
+
+  overflow: hidden;
 }
+
 .user-name {
+  color: #111827;
+
+  font-size: 13px;
   font-weight: 600;
-  font-size: 0.9rem;
-  color: var(--p-text-color);
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
 .user-role {
-  font-size: 0.75rem;
-  color: var(--p-text-muted-color);
+  margin-top: 2px;
+
+  color: #6b7280;
+
+  font-size: 11px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* --- ДИНАМИЧЕСКИЙ DRAWER --- */
-.drawer-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  padding: 16px 0;
+.user-more-btn {
+  margin-left: auto;
+
+  flex-shrink: 0;
 }
 
-/* --- КОНТЕНТНАЯ ОБЛАСТЬ --- */
+/* =========================================================
+ MAIN
+========================================================= */
+
+.main-container {
+  min-height: 100vh;
+
+  margin-left: 260px;
+}
+
 .content-area {
-  flex: 1;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
+  min-width: 0;
+  min-height: 100vh;
+
+  padding: 20px;
 }
-.content-header {
+
+/* =========================================================
+ MOBILE HEADER
+========================================================= */
+
+.mobile-header {
+  display: none;
+}
+
+/* =========================================================
+ TOOLBAR
+========================================================= */
+
+.custom-toolbar {
+  width: 100%;
+  min-height: 68px;
+
+  margin-bottom: 20px;
+
+  padding: 10px 16px !important;
+
+  background: #ffffff !important;
+
+  border: 1px solid #e5e7eb !important;
+
+  border-radius: 12px !important;
+
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.custom-toolbar .p-toolbar-start,
+.custom-toolbar .p-toolbar-end {
+  min-width: 0;
+}
+
+/* =========================================================
+ TOOLBAR LEFT
+========================================================= */
+
+.toolbar-left {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+
+  min-width: 0;
 }
-.page-title {
-  margin: 0;
-  font-size: 1.5rem;
-  font-weight: 700;
+
+.custom-search {
+  width: 280px;
 }
-.mode-badge {
-  font-size: 0.75rem;
-  background-color: var(--p-surface-200);
-  color: var(--p-text-color);
-  padding: 4px 8px;
-  border-radius: 4px;
+
+.custom-search .p-inputtext {
+  width: 100%;
+
+  height: 40px;
+
+  border-radius: 8px;
+}
+
+.toolbar-divider {
+  width: 1px;
+  height: 28px;
+
+  margin: 0 18px;
+
+  background: #e5e7eb;
+
+  flex-shrink: 0;
+}
+
+.page-context {
+  display: flex;
+  align-items: center;
+
+  min-width: 0;
+
+  gap: 8px;
+
+  white-space: nowrap;
+}
+
+.context-title {
+  color: #9ca3af;
+
+  font-size: 13px;
   font-weight: 500;
 }
 
-/* --- СЕТКА ДАШБОРДА НА CSS GRID --- */
+.context-separator {
+  color: #d1d5db;
+}
+
+.context-current {
+  max-width: 220px;
+
+  color: #111827;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* =========================================================
+ TOOLBAR RIGHT
+========================================================= */
+
+.actions-wrapper {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  min-width: 0;
+}
+
+/* =========================================================
+ LANGUAGE
+========================================================= */
+
+.lang-select {
+  width: 120px;
+
+  height: 40px;
+
+  flex-shrink: 0;
+}
+
+/* .lang-select .p-select-label {
+  font-size: 13px;
+} */
+
+/* =========================================================
+ LOGOUT
+========================================================= */
+
+.logout-btn {
+  min-width: 100px;
+  height: 40px;
+
+  flex-shrink: 0;
+
+  justify-content: center !important;
+
+  border-radius: 8px !important;
+
+  font-size: 13px !important;
+}
+
+.logout-btn .p-button-label {
+  display: inline;
+}
+
+/* =========================================================
+ DRAWER
+========================================================= */
+
+.custom-drawer {
+  width: 280px !important;
+}
+
+.drawer-content {
+  height: calc(100% - 10px);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer-content .menu-list {
+  padding-top: 10px;
+}
+
+.drawer-content .user-footer {
+  margin-top: auto;
+}
+
+/* =========================================================
+ DASHBOARD
+========================================================= */
+
 .dashboard-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
   gap: 20px;
 }
+
 .card-item {
-  background-color: var(--p-surface-0);
-  border: 1px solid var(--p-surface-200);
-  border-radius: 12px;
+  min-width: 0;
+
   padding: 20px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 12px;
+
+  overflow: hidden;
 }
+
 .large-card {
   grid-column: span 2;
 }
+
 .card-title {
-  margin: 0 0 16px 0;
-  font-size: 1rem;
+  margin-bottom: 16px;
+
+  color: #111827;
+
+  font-size: 16px;
   font-weight: 600;
-  color: var(--p-text-muted-color);
 }
+
 .card-placeholder {
-  height: 140px;
-  background-color: var(--p-surface-50);
-  border-radius: 8px;
+  min-height: 120px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #9ca3af;
 }
-.card-placeholder.large {
-  height: 260px;
-}
+
+/* =========================================================
+ UTILITIES
+========================================================= */
 
 .mr-2 {
   margin-right: 0.5rem;
@@ -190,104 +437,339 @@
   margin-left: 0.5rem;
 }
 
-/* --- БАЗОВЫЕ СТИЛИ ТУЛБАРА ДЛЯ ДЕСКТОПА --- */
-.custom-toolbar {
-  margin-bottom: 1.5rem;
-  border: 1px solid var(--p-surface-200);
-  background-color: var(--p-surface-0);
-  border-radius: 8px;
-  padding: 12px 16px !important;
-}
+/* =========================================================
+ TABLET
+========================================================= */
 
-.actions-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.lang-select {
-  width: 130px;
-  height: 36px;
-  display: inline-flex;
-  align-items: center;
-}
-
-.search-input {
-  width: 100% !important;
-}
-
-:deep(.p-select-label) {
-  padding: 0 12px !important;
-  font-size: 0.85rem;
-}
-
-/* --- МОБИЛЬНАЯ АДАПТАЦИЯ (МЕНЬШЕ 560px) --- */
-@media (max-width: 560px) {
-  .p-toolbar.p-component.custom-toolbar {
-    display: flex;
-    align-items: normal;
+@media (max-width: 1200px) {
+  .desktop-sidebar {
+    width: 230px;
   }
 
-  :deep(.p-toolbar) {
-    flex-direction: column !important;
-    align-items: stretch !important;
-    gap: 12px;
-  }
-  
-  .custom-toolbar {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
-    padding: 12px !important;
+  .main-container {
+    margin-left: 230px;
   }
 
-  :deep(.p-toolbar-start),
-  :deep(.p-toolbar-end) {
+  .content-area {
+    padding: 16px;
+  }
+
+  .custom-search {
+    width: 220px;
+  }
+
+  .toolbar-divider {
+    margin: 0 10px;
+  }
+}
+
+/* =========================================================
+ TABLET / SMALL
+========================================================= */
+
+@media (max-width: 900px) {
+  .desktop-sidebar {
+    width: 210px;
+  }
+
+  .main-container {
+    margin-left: 210px;
+  }
+
+  .custom-search {
+    width: 190px;
+  }
+
+  .page-context {
+    display: none;
+  }
+}
+
+/* =========================================================
+ MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+  /* -----------------------------------------
+     SIDEBAR
+  ----------------------------------------- */
+
+  .desktop-sidebar {
+    display: none;
+  }
+
+  /* -----------------------------------------
+     MAIN
+  ----------------------------------------- */
+
+  .main-container {
     width: 100%;
-    display: flex;
+
+    margin-left: 0;
   }
 
-  .custom-search,
-  .search-input {
-    width: 100% !important;
+  .content-area {
+    width: 100%;
+    min-width: 0;
+
+    padding: 12px;
   }
+
+  /* -----------------------------------------
+     MOBILE HEADER
+  ----------------------------------------- */
+
+  .mobile-header {
+    width: 100%;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 12px;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 900;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+
+    min-width: 0;
+  }
+
+  .brand-title {
+    margin-left: 8px;
+
+    color: #111827;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    white-space: nowrap;
+  }
+
+  .mobile-avatar {
+    width: 34px !important;
+    height: 34px !important;
+
+    flex-shrink: 0;
+
+    background: #2563eb !important;
+
+    color: #ffffff !important;
+  }
+
+  /* -----------------------------------------
+     TOOLBAR
+  ----------------------------------------- */
+
+  .custom-toolbar {
+    display: block !important;
+
+    min-height: auto;
+
+    margin-bottom: 14px;
+
+    padding: 12px !important;
+
+    border-radius: 10px !important;
+  }
+
+  .custom-toolbar .p-toolbar-start,
+  .custom-toolbar .p-toolbar-end {
+    width: 100%;
+  }
+
+  /* -----------------------------------------
+     SEARCH
+  ----------------------------------------- */
+
+  .toolbar-left {
+    width: 100%;
+
+    display: block;
+  }
+
+  .custom-search {
+    width: 100%;
+  }
+
+  .custom-search .p-inputtext {
+    width: 100%;
+
+    height: 42px;
+  }
+
+  /* -----------------------------------------
+     HIDE DESKTOP CONTEXT
+  ----------------------------------------- */
+
+  .toolbar-left .toolbar-divider,
+  .page-context {
+    display: none;
+  }
+
+  /* -----------------------------------------
+     ACTIONS
+  ----------------------------------------- */
 
   .actions-wrapper {
     width: 100%;
-    justify-content: space-between;
+
+    margin-top: 10px;
+
+    display: flex;
+    align-items: center;
+
     gap: 8px;
+
+    flex-wrap: nowrap;
+  }
+
+  /* -----------------------------------------
+     LANGUAGE
+  ----------------------------------------- */
+
+  .lang-select {
+    width: auto;
+
+    min-width: 0;
+
+    flex: 1;
+
+    height: 42px;
+  }
+
+  /* -----------------------------------------
+     LOGOUT
+  ----------------------------------------- */
+
+  .logout-btn {
+    width: auto;
+
+    min-width: 105px;
+
+    flex: 0 0 auto;
+
+    height: 42px;
+  }
+
+  .logout-btn .p-button-label {
+    display: inline !important;
+  }
+
+  /* -----------------------------------------
+     DASHBOARD
+  ----------------------------------------- */
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+  }
+
+  .large-card {
+    grid-column: span 1;
+  }
+
+  .card-item {
+    padding: 16px;
+
+    border-radius: 10px;
+  }
+}
+
+/* =========================================================
+ SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+  .content-area {
+    padding: 10px;
+  }
+
+  .mobile-header {
+    height: 54px;
+
+    padding: 0 10px;
+  }
+
+  .brand-title {
+    font-size: 15px;
+  }
+
+  .custom-toolbar {
+    padding: 10px !important;
+  }
+
+  .actions-wrapper {
+    gap: 6px;
+  }
+
+  .lang-select {
+    height: 40px;
+  }
+
+  .logout-btn {
+    min-width: 95px;
+
+    height: 40px;
+
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  .logout-btn .p-button-label {
+    font-size: 12px;
+  }
+
+  .logout-btn .p-button-icon {
+    font-size: 13px;
+  }
+}
+
+/* =========================================================
+ VERY SMALL PHONE
+========================================================= */
+
+@media (max-width: 360px) {
+  .content-area {
+    padding: 8px;
+  }
+
+  .mobile-header {
+    padding: 0 8px;
+  }
+
+  .custom-toolbar {
+    padding: 8px !important;
+  }
+
+  .actions-wrapper {
+    gap: 5px;
   }
 
   .lang-select {
     flex: 1;
-    width: auto;
+
+    min-width: 0;
   }
 
   .logout-btn {
-    flex: 1;
-    justify-content: center;
-  }
-}
+    min-width: 88px;
 
-/* --- МЕДИА-ЗАПРОСЫ --- */
-@media (max-width: 768px) {
-  .desktop-sidebar {
-    display: none;
-  }
-  .dashboard-grid {
-    grid-template-columns: 1fr;
-  }
-  .large-card {
-    grid-column: span 1;
-  }
-  .content-header {
-    display: none;
-  }
-}
-
-@media (min-width: 769px) {
-  .mobile-header {
-    display: none;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
   }
 }
