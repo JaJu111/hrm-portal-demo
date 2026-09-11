@@ -1,4 +1,4 @@
-import{O as e,T as t,c as n,ct as r,dt as i,j as a,l as o,u as s,x as c}from"./runtime-core.esm-bundler-Dq5yDiGz.js";import{a as l,lt as u}from"./ripple-BQmRNbKp.js";import{a as d}from"./index-Bg8zAvaR.js";var f=d.extend({name:`avatar`,style:`
+import{O as e,T as t,c as n,ct as r,dt as i,j as a,l as o,u as s,x as c}from"./runtime-core.esm-bundler-Dq5yDiGz.js";import{a as l,lt as u}from"./ripple-BgBnhMkM.js";import{a as d}from"./index-5AVaRoWb.js";var f=d.extend({name:`avatar`,style:`
     .p-avatar {
         display: inline-flex;
         align-items: center;

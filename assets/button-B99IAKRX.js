@@ -1,4 +1,4 @@
-import{A as e,O as t,R as n,T as r,c as i,ct as a,dt as o,j as s,k as c,l,m as u,u as d,x as f,z as p}from"./runtime-core.esm-bundler-Dq5yDiGz.js";import{C as m,a as h,lt as g,r as _,t as v,v as y}from"./ripple-BQmRNbKp.js";import{a as b}from"./index-Bg8zAvaR.js";var x=b.extend({name:`badge`,style:`
+import{A as e,O as t,R as n,T as r,c as i,ct as a,dt as o,j as s,k as c,l,m as u,u as d,x as f,z as p}from"./runtime-core.esm-bundler-Dq5yDiGz.js";import{C as m,a as h,lt as g,r as _,t as v,v as y}from"./ripple-BgBnhMkM.js";import{a as b}from"./index-5AVaRoWb.js";var x=b.extend({name:`badge`,style:`
     .p-badge {
         display: inline-flex;
         border-radius: dt('badge.border.radius');
